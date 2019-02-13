@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class InsertionSort {
 
-    private static int[] randomArray;
+    private int[] randomArray;
 
     private void sort(int arr[]) {
         long startTime = System.nanoTime();
@@ -40,16 +40,16 @@ public class InsertionSort {
         System.out.println();
     }
 
-    public static int randomFill() {
+    public  int randomNum() {
         Random r = new Random();
-        int randomNum = r.nextInt();
+        int randomNum = r.nextInt(50);
         return randomNum;
     }
 
-    public static int[] list() {
+    public int[] list() {
         randomArray = new int[10];
         for (int i = 0; i < randomArray.length; i++) {
-            randomArray[i] = randomFill();
+            randomArray[i] = randomNum();
         }
         return randomArray;
     }
@@ -58,13 +58,13 @@ public class InsertionSort {
 
         int[] A = {5, 6, 11, 12, 13, 14, 16, 20, 33, 50};
         int[] B = {50, 33, 20, 16, 14, 13, 12, 11, 6, 5};
-
+        
         InsertionSort is = new InsertionSort();
 
         // Random Case
         System.out.println("Random Case: ");
-        is.sort(is.list());
         is.printArray(is.list());
+        is.sort(is.list());
 
         // Best Case
         System.out.println("Best Case: ");
@@ -76,5 +76,4 @@ public class InsertionSort {
         is.sort(B);
         is.printArray(B);
     }
-
 }
